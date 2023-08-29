@@ -45,16 +45,17 @@ body {
     font-weight: 900;
     letter-spacing: 1px;
     font-size: 28px;
-    text-shadow: 0.5px 0, -0.5px 0;
 }
 .logo-primary, .logo-secondary {
     display: inline;
 }
 .logo-primary {
     color: #CE2021;
+    text-shadow: 0.5px 0 #CE2021, -0.5px 0 #CE2021;
 }
 .logo-secondary {
     color: #8DC728;
+    text-shadow: 0.5px 0 #8DC728, -0.5px 0 #8DC728;
 }
 main {
     height: 100%;
