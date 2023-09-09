@@ -2,16 +2,21 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 html {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
 }
 body {
     background-color: grey;
-    margin: 0px;
+    margin: 80px 0 0 0;
     height: 100%;
     width: 100%;
     background-repeat: repeat;
     background-image: url("./images/spikes.png");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .nav {
     background-color: white;
@@ -21,19 +26,29 @@ body {
     width: 100%;
     height: 80px;
     flex-wrap: nowrap;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.nav-left, .nav-right {
+    flex: 1 0 100px;
 }
 .nav-left {
     margin-left: 4vw;
+    align-items: center;
 }
 .nav-right {
-    margin-right: 5vw;
+    margin-right: 10%;
     font-size: 15px;
     display: flex;
     flex-wrap: nowrap;
+    justify-content: flex-end;
 }
 .nav-right > a {
     display: inline-block;
     margin: 24px 12px 24px 28px;
+    height: fit-content;
     color: black;
     text-decoration-line: none;
 }
@@ -51,60 +66,67 @@ body {
 }
 .logo-primary {
     color: #CE2021;
-    text-shadow: 0.5px 0 #CE2021, -0.5px 0 #CE2021;
 }
 .logo-secondary {
     color: #8DC728;
-    text-shadow: 0.5px 0 #8DC728, -0.5px 0 #8DC728;
 }
 main {
-    height: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
 }
 .main-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    flex-flow: column;
     margin: 5% 4% 0 6%;
+    height: 70vh;
+}
+.meal-content {
+    flex: 1 0 360px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
     height: 100%;
 }
-.left-content {
-    flex: 1 1 1;
-    width: 290px;
+.meal-intro {
+    flex: 1 1 18vw;
     margin-right: 40px;
-    margin-bottom: 40px;
     font-size: 20px;
+    height: 100%;
+    max-height: 700px;
+    
 }
-.left-content > h1 {
+.meal-intro > h1 {
     margin: 0 auto;
     font-size: 48px;
     font-weight: 900;
     letter-spacing: 1px;
-    text-shadow: 1px 0, 1px 1px, 0 1px;
 }
-.left-content > p {
+.meal-intro > p {
     margin: 14px auto 28px auto;
 }
-.right-content {
-    flex: 1 3 auto;
+.meals {
+    flex: 1 1 65vw;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
-    width: 500px;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
     height: 100%;
 }
 .meal {
-    flex: 1 1 0;
-    margin: 0 5px;
+    flex: 1 1 260px;
     position: relative;
-    max-width: 260px;
     min-width: 170px;
-    height: 360px;
+    height: 100%;
+    max-height: 700px;
 }
 .meal > img {
     width: 100%;
     height: 100%;
-}
-.meal > img {
     object-fit: cover;
     object-position: 50% 50%;
 }
@@ -138,8 +160,38 @@ main {
     color: black;
     text-decoration-line: none;
     font-size: 18px;
-    text-shadow: 0.1px 0;
 }
 .content-reference:hover {
     color: darkgrey;
+}
+@media (max-width: 899.98px) {
+    .meal-content, .meals {
+        flex-direction: column;
+        height: fit-content;
+        width: 100%;
+    }
+    .meal-intro {
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+    .nav {
+        flex-direction: column;
+    }
+    .nav-left, .nav-right {
+        flex: 1 0 auto;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .nav-right > a {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .nav-left {
+        margin-top: 8px;
+    }
+    .meal {
+        max-height: 900px;
+    }
 }
